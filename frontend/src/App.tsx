@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 function App() {
   const [status, setStatus] = useState("Loading...");
   const [version, setVersion] = useState("");
-
+const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/status")
+  fetch(`${API_URL}/api/status`)
       .then((response) => response.json())
       .then((data) => {
         setStatus(data.status);
